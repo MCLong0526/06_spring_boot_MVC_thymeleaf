@@ -9,6 +9,19 @@
 <form th:action="@{/processStudentForm}" th:object="${student}" method="POST">
   First Name: <input type="text" th:field="*{firstName}" placeholder="First Name" /><br><br>
   Last Name: <input type="text" th:field="${student.lastName}" placeholder="Last Name" /><br><br>
+  Country:
+    <select th:field="*{country}">
+        <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}"/>
+    </select>
+    <br><br>
+    Favourite color:
+    <select th:field = "*{color}" >
+        <option th:each="tempColor : ${colors}" th:value = "${tempColor}" th:text="${tempColor}"/>
+    </select>
+    <br><br>
+    Programming Language:
+    <input type="radio" th:each="tempLanguage : ${programmingLanguages}" th:value="${tempLanguage}" th:field="*{programmingLanguage}" th:text="${tempLanguage}"/>
+    <br><br>
 
   <input type="submit" value="Submit" />
 </form>
